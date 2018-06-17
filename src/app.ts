@@ -7,17 +7,7 @@ const button = document.querySelector('button') as HTMLButtonElement;
 const destroy = document.querySelector('.unsubscribe') as HTMLButtonElement;
 const todoList = document.querySelector('.todos') as HTMLLIElement;
 
-const store = new fromStore.Store(
-  {},
-  {
-    todos: [
-      {
-        label: 'Eat pizza',
-        complete: false,
-      },
-    ],
-  },
-);
+const store = new fromStore.Store({});
 
 button.addEventListener(
   'click',
@@ -26,17 +16,10 @@ button.addEventListener(
 
     const payload = { label: input.value, complete: false };
 
-    let oldStore = store.value;
-
     store.dispatch({
       type: 'ADD_TODO',
       payload,
     });
-
-    let newStore = store.value;
-    let newStoreX = store.value;
-    console.log('equal?', newStore === oldStore);
-    console.log('equal?', newStore === newStoreX);
 
     input.value = '';
   },
