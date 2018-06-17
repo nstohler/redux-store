@@ -7,6 +7,7 @@ module.exports = {
   devServer: {
     port: 8000,
   },
+  devtool: 'source-map',
   resolve: {
     extensions: ['.ts', '.js'],
   },

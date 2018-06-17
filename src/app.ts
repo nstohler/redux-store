@@ -25,6 +25,8 @@ button.addEventListener(
 
     console.log(payload);
 
+    console.log('test');
+
     input.value = '';
   },
   false
