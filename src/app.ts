@@ -10,11 +10,14 @@ const todoList = document.querySelector('.todos') as HTMLLIElement;
 const store = new fromStore.Store(
   {},
   {
-    todos: [{ label: 'Eat pizza', complete: false }],
-  }
+    todos: [
+      {
+        label: 'Eat pizza',
+        complete: false,
+      },
+    ],
+  },
 );
-
-console.log(store.value);
 
 button.addEventListener(
   'click',
@@ -23,13 +26,21 @@ button.addEventListener(
 
     const payload = { label: input.value, complete: false };
 
-    console.log(payload);
+    let oldStore = store.value;
 
-    console.log('test');
+    store.dispatch({
+      type: 'ADD_TODO',
+      payload,
+    });
+
+    let newStore = store.value;
+    let newStoreX = store.value;
+    console.log('equal?', newStore === oldStore);
+    console.log('equal?', newStore === newStoreX);
 
     input.value = '';
   },
-  false
+  false,
 );
 
 todoList.addEventListener('click', function(event) {
