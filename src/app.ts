@@ -13,14 +13,10 @@ const reducers = {
 
 const store = new fromStore.Store(reducers, {});
 
-console.log(store.value);
-
 button.addEventListener(
   'click',
   () => {
     if (!input.value.trim()) return;
-
-    console.log(store.value);
 
     const payload = { label: input.value, complete: false };
 
@@ -28,8 +24,6 @@ button.addEventListener(
       type: 'ADD_TODO',
       payload,
     });
-
-    console.log(store.value);
 
     input.value = '';
   },
@@ -42,3 +36,5 @@ todoList.addEventListener('click', function(event) {
     console.log(target);
   }
 });
+
+store.subscribe(state => console.log('STATE:::', state));
