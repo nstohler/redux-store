@@ -15,7 +15,7 @@ export class Store {
 
   subscribe(fn) {
     this.subscribers = [...this.subscribers, fn];
-    this.notify();  // to get data right after subscription!
+    this.notify(); // to get data right after subscription!
     // unsubscribe support
     return () => {
       this.subscribers = this.subscribers.filter(sub => sub !== fn);

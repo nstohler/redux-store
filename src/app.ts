@@ -8,7 +8,7 @@ const destroy = document.querySelector('.unsubscribe') as HTMLButtonElement;
 const todoList = document.querySelector('.todos') as HTMLLIElement;
 
 const reducers = {
-  todos: fromStore.reducer,
+  todos: fromStore.reducer
 };
 
 const store = new fromStore.Store(reducers, {});
@@ -24,7 +24,7 @@ button.addEventListener(
 
     input.value = '';
   },
-  false,
+  false
 );
 
 const unsubscribe = store.subscribe(state => {
